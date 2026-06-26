@@ -1,0 +1,92 @@
+namespace CyberBot
+{
+    /// <summary>
+    /// Sits in front of the original Part 1/2 ResponseEngine. Uses NlpRouter
+    /// to detect task / quiz / activity-log intents; if none is found, the
+    /// input is passed through to ResponseEngine unchanged so all existing
+    /// Part 1 & 2 behaviour (topics, sentiment, memory, follow-ups) keeps working.
+    /// </summary>
+    static class CommandProcessor
+    {
+        public static string Process(string input, UserMemory memory, QuizEngine quiz)
+        {
+            NlpIntent intent = NlpRouter.DetectIntent(input, quizInProgress: quiz.IsActive);
+
+            switch (intent)
+            {
+                case NlpIntent.AddTask:
+                    return HandleAddTask(input, memory);
+
+                case NlpIntent.ViewTasks:
+                    ActivityLogger.Log("User viewed task list", ActivityLogger.Category.Nlp);
+                    return TaskManager.FormatTaskList();
+
+                case NlpIntent.CompleteTask:
+                    return HandleCompleteTask(input);
+
+                case NlpIntent.DeleteTask:
+                    return HandleDeleteTask(input);
+
+                case NlpIntent.StartQuiz:
+                    return quiz.Start();
+
+                case NlpIntent.QuizAnswer:
+                    return quiz.SubmitAnswer(input);
+
+                case NlpIntent.ShowActivityLog:
+                    return ActivityLogger.FormatForDisplay(ActivityLogger.GetRecent(10));
+
+                case NlpIntent.ShowFullActivityLog:
+                    return ActivityLogger.FormatForDisplay(ActivityLogger.GetAll());
+
+                case NlpIntent.None:
+                default:
+                    // Fall through to the original Part 1 & 2 chatbot logic.
+                    return ResponseEngine.GetResponse(input, memory);
+            }
+        }
+
+        private static string HandleAddTask(string input, UserMemory memory)
+        {
+            var (title, reminder) = NlpRouter.ExtractTaskDetails(input);
+            var task = TaskManager.AddTask(title, description: null, reminder);
+
+            ActivityLogger.Log($"NLP recognised 'add task' intent from: \"{input}\"", ActivityLogger.Category.Nlp);
+
+            string reminderNote = reminder.HasValue
+                ? $"\n⏰ Reminder set for {reminder.Value:dd MMM yyyy}."
+                : "\n(No reminder date detected — you can say e.g. \"in 7 days\" next time.)";
+
+            return $"✅ Got it, {memory.Name}! I've added task #{task.Id}: \"{task.Title}\"{reminderNote}\n\n" +
+                   "Say \"view my tasks\" anytime to see your full list.";
+        }
+
+        private static string HandleCompleteTask(string input)
+        {
+            int? id = NlpRouter.ExtractTaskId(input);
+            if (id == null)
+                return "Which task would you like to mark as complete? Try \"complete task 3\".";
+
+            bool success = TaskManager.MarkCompleted(id.Value);
+            ActivityLogger.Log($"NLP recognised 'complete task' intent for task #{id}", ActivityLogger.Category.Nlp);
+
+            return success
+                ? $"✅ Task #{id} marked as completed. Nice work staying on top of your security!"
+                : $"I couldn't find task #{id}. Say \"view my tasks\" to see valid task numbers.";
+        }
+
+        private static string HandleDeleteTask(string input)
+        {
+            int? id = NlpRouter.ExtractTaskId(input);
+            if (id == null)
+                return "Which task would you like to delete? Try \"delete task 3\".";
+
+            bool success = TaskManager.DeleteTask(id.Value);
+            ActivityLogger.Log($"NLP recognised 'delete task' intent for task #{id}", ActivityLogger.Category.Nlp);
+
+            return success
+                ? $"🗑 Task #{id} has been deleted."
+                : $"I couldn't find task #{id}. Say \"view my tasks\" to see valid task numbers.";
+        }
+    }
+}

@@ -1,0 +1,170 @@
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace CyberBot
+{
+    /// <summary>
+    /// Simple NLP simulation: detects what the user *wants to do* (add a task,
+    /// view tasks, start the quiz, view the activity log, etc.) even when
+    /// phrased in different ways, using keyword/string.Contains() matching —
+    /// exactly as described in the brief, rather than full natural-language
+    /// understanding.
+    /// </summary>
+    static class NlpRouter
+    {
+        // Phrases that suggest the user wants to ADD a task.
+        private static readonly string[] AddTaskTriggers =
+        {
+            "add a task", "add task", "create a task", "create task",
+            "new task", "set a reminder", "set reminder", "remind me",
+            "can you remind me", "add a reminder"
+        };
+
+        private static readonly string[] ViewTaskTriggers =
+        {
+            "view my tasks", "view tasks", "show my tasks", "show tasks",
+            "list my tasks", "list tasks", "what are my tasks", "my task list",
+            "see my tasks"
+        };
+
+        private static readonly string[] CompleteTaskTriggers =
+        {
+            "complete task", "mark task", "finish task", "done with task",
+            "task complete", "completed task"
+        };
+
+        private static readonly string[] DeleteTaskTriggers =
+        {
+            "delete task", "remove task", "cancel task"
+        };
+
+        private static readonly string[] QuizTriggers =
+        {
+            "start quiz", "take the quiz", "take a quiz", "play quiz",
+            "begin quiz", "quiz me", "start the quiz", "play the game",
+            "start game", "play a game"
+        };
+
+        private static readonly string[] LogTriggers =
+        {
+            "show activity log", "show log", "view activity log", "view log",
+            "what have you done", "activity history", "show history",
+            "show me the log", "what have you done for me"
+        };
+
+        private static readonly string[] FullLogTriggers =
+        {
+            "full log", "full history", "show full log", "show all activity",
+            "entire log", "complete history"
+        };
+
+        /// <summary>
+        /// Detects the user's intent from free-form input. Returns NlpIntent.None
+        /// if nothing matches (caller should fall back to ResponseEngine).
+        /// </summary>
+        public static NlpIntent DetectIntent(string input, bool quizInProgress)
+        {
+            string lower = input.ToLower().Trim();
+
+            // If a quiz is mid-flight, numeric/text answers take priority
+            // over everything else (so "2" or "true" isn't misread as a task).
+            if (quizInProgress)
+                return NlpIntent.QuizAnswer;
+
+            if (FullLogTriggers.Any(lower.Contains))
+                return NlpIntent.ShowFullActivityLog;
+
+            if (LogTriggers.Any(lower.Contains))
+                return NlpIntent.ShowActivityLog;
+
+            if (CompleteTaskTriggers.Any(lower.Contains))
+                return NlpIntent.CompleteTask;
+
+            if (DeleteTaskTriggers.Any(lower.Contains))
+                return NlpIntent.DeleteTask;
+
+            if (ViewTaskTriggers.Any(lower.Contains))
+                return NlpIntent.ViewTasks;
+
+            if (AddTaskTriggers.Any(lower.Contains))
+                return NlpIntent.AddTask;
+
+            if (QuizTriggers.Any(lower.Contains))
+                return NlpIntent.StartQuiz;
+
+            return NlpIntent.None;
+        }
+
+        /// <summary>
+        /// Extracts a task ID from input like "complete task 3" or "delete task #2".
+        /// Returns null if no number is found.
+        /// </summary>
+        public static int? ExtractTaskId(string input)
+        {
+            var match = Regex.Match(input, @"#?(\d+)");
+            return match.Success ? int.Parse(match.Groups[1].Value) : null;
+        }
+
+        /// <summary>
+        /// Extracts a best-guess task title and optional reminder timeframe
+        /// from a free-form "add a task..." style message.
+        ///
+        /// Handles variations such as:
+        ///   "add a task to enable 2FA"
+        ///   "remind me to update my password in 7 days"
+        ///   "add a reminder to check my privacy settings"
+        /// </summary>
+        public static (string Title, DateTime? Reminder) ExtractTaskDetails(string input)
+        {
+            string lower = input.ToLower();
+            string text  = input;
+
+            // Strip a leading trigger phrase to isolate the task description.
+            string[] leadIns =
+            {
+                "can you remind me to", "remind me to", "add a reminder to",
+                "add a task to", "add task to", "create a task to", "create task to",
+                "new task to", "set a reminder to", "set reminder to",
+                "add a task", "add task", "create a task", "create task", "new task"
+            };
+
+            foreach (var leadIn in leadIns.OrderByDescending(s => s.Length))
+            {
+                int idx = lower.IndexOf(leadIn, StringComparison.Ordinal);
+                if (idx >= 0)
+                {
+                    text = text[(idx + leadIn.Length)..].Trim();
+                    break;
+                }
+            }
+
+            // Look for a relative reminder timeframe, e.g. "in 7 days" / "in 2 weeks".
+            DateTime? reminder = null;
+            var relMatch = Regex.Match(lower, @"in (\d+)\s*(day|days|week|weeks)");
+            if (relMatch.Success)
+            {
+                int amount = int.Parse(relMatch.Groups[1].Value);
+                bool isWeeks = relMatch.Groups[2].Value.StartsWith("week");
+                reminder = DateTime.Now.AddDays(isWeeks ? amount * 7 : amount);
+
+                // Remove the "in X days/weeks" fragment from the title text.
+                int relIdx = text.ToLower().IndexOf(relMatch.Value, StringComparison.Ordinal);
+                if (relIdx >= 0)
+                    text = text.Remove(relIdx, relMatch.Value.Length).Trim();
+            }
+
+            // Clean up leftover connector words/punctuation.
+            text = Regex.Replace(text, @"^(to|that|for)\s+", "", RegexOptions.IgnoreCase).Trim();
+            text = text.TrimEnd('.', '!', '?').Trim();
+
+            if (string.IsNullOrWhiteSpace(text))
+                text = "New cybersecurity task";
+
+            // Capitalise first letter for a tidy display.
+            text = char.ToUpper(text[0]) + text[1..];
+
+            return (text, reminder);
+        }
+    }
+}

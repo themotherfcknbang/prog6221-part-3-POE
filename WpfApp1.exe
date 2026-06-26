@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using MySqlConnector;
+
+namespace CyberBot
+{
+    /// <summary>
+    /// Records every significant action the bot takes (tasks added/updated/
+    /// completed, reminders set, quiz attempts, NLP-recognised commands) to
+    /// the activity_log table, and retrieves recent history on request.
+    /// </summary>
+    static class ActivityLogger
+    {
+        public enum Category { Task, Reminder, Quiz, Nlp, System }
+
+        /// <summary>In-memory fallback log, used only if the database is unavailable.</summary>
+        private static readonly List<(string Action, string Category, DateTime When)> _memoryLog = new();
+
+        public static void Log(string action, Category category)
+        {
+            string categoryName = category.ToString();
+
+            if (!Database.IsAvailable)
+            {
+                _memoryLog.Add((action, categoryName, DateTime.Now));
+                return;
+            }
+
+            try
+            {
+                using var conn = Database.GetConnection();
+                using var cmd  = conn.CreateCommand();
+                cmd.CommandText = @"INSERT INTO activity_log (Action, Category, Timestamp)
+                                     VALUES (@action, @category, @timestamp);";
+                cmd.Parameters.AddWithValue("@action", action);
+                cmd.Parameters.AddWithValue("@category", categoryName);
+                cmd.Parameters.AddWithValue("@timestamp", DateTime.Now);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                // Never let logging failures break the chat experience.
+                _memoryLog.Add((action, categoryName, DateTime.Now));
+            }
+        }
+
+        /// <summary>
+        /// Returns the most recent log entries (default last 10), newest first.
+        /// </summary>
+        public static List<(int Id, string Action, string Category, DateTime When)> GetRecent(int count = 10)
+        {
+            var results = new List<(int Id, string Action, string Category, DateTime When)>();
+
+            if (!Database.IsAvailable)
+            {
+                int start = Math.Max(0, _memoryLog.Count - count);
+                for (int i = _memoryLog.Count - 1; i >= start; i--)
+                {
+                    var entry = _memoryLog[i];
+                    results.Add((i + 1, entry.Action, entry.Category, entry.When));
+                }
+                return results;
+            }
+
+            try
+            {
+                using var conn = Database.GetConnection();
+                using var cmd  = conn.CreateCommand();
+                cmd.CommandText = @"SELECT LogId, Action, Category, Timestamp
+                                     FROM activity_log
+                                     ORDER BY Timestamp DESC, LogId DESC
+                                     LIMIT @count;";
+                cmd.Parameters.AddWithValue("@count", count);
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add((
+                        reader.GetInt32("LogId"),
+                        reader.GetString("Action"),
+                        reader.GetString("Category"),
+                        reader.GetDateTime("Timestamp")
+                    ));
+                }
+            }
+            catch
+            {
+                // If reading fails, just return what we have (possibly empty).
+            }
+
+            return results;
+        }
+
+        /// <summary>Returns the full log history, newest first.</summary>
+        public static List<(int Id, string Action, string Category, DateTime When)> GetAll()
+        {
+            // A generous cap protects against runaway output while still
+            // satisfying "show full history" requests.
+            return GetRecent(count: 1000);
+        }
+
+        /// <summary>Formats a list of log entries for display in the chat window.</summary>
+        public static string FormatForDisplay(List<(int Id, string Action, string Category, DateTime When)> entries)
+        {
+            if (entries.Count == 0)
+                return "No activity has been logged yet — go add a task or try the quiz!";
+
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine("📋 Activity Log:\n");
+
+            foreach (var entry in entries)
+            {
+                string icon = entry.Category switch
+                {
+                    "Task"     => "🗒",
+                    "Reminder" => "⏰",
+                    "Quiz"     => "🎮",
+                    "Nlp"      => "🧠",
+                    _          => "•"
+                };
+                sb.AppendLine($"{icon} [{entry.When:dd MMM, HH:mm}] {entry.Action}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+    }
+}

@@ -1,0 +1,306 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\quizengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:quizengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\sentimentdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:sentimentdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\responseengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:responseengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\nlprouter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:nlprouter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\nlpintent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:nlpintent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\dbconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:dbconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\commandprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:commandprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:schema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\usermemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:usermemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|c:\\users\\student\\documents\\cyberbot_part3\\wpfapp1\\activitylogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C0E4244-CE0B-4434-B9C9-E66904095282}|WpfApp1.csproj|solutionrelative:activitylogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuizQuestion.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\QuizQuestion.cs",
+              "RelativeDocumentMoniker": "QuizQuestion.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\QuizQuestion.cs",
+              "RelativeToolTip": "QuizQuestion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:06.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DbConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\DbConfig.cs",
+              "RelativeDocumentMoniker": "DbConfig.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\DbConfig.cs",
+              "RelativeToolTip": "DbConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:06:56.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NlpIntent.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\NlpIntent.cs",
+              "RelativeDocumentMoniker": "NlpIntent.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\NlpIntent.cs",
+              "RelativeToolTip": "NlpIntent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:02.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NlpRouter.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\NlpRouter.cs",
+              "RelativeDocumentMoniker": "NlpRouter.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\NlpRouter.cs",
+              "RelativeToolTip": "NlpRouter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:03.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuizEngine.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\QuizEngine.cs",
+              "RelativeDocumentMoniker": "QuizEngine.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\QuizEngine.cs",
+              "RelativeToolTip": "QuizEngine.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwG4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:05.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResponseEngine.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\ResponseEngine.cs",
+              "RelativeDocumentMoniker": "ResponseEngine.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\ResponseEngine.cs",
+              "RelativeToolTip": "ResponseEngine.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:11.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SentimentDetector.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\SentimentDetector.cs",
+              "RelativeDocumentMoniker": "SentimentDetector.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\SentimentDetector.cs",
+              "RelativeToolTip": "SentimentDetector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:17.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\Database.cs",
+              "RelativeDocumentMoniker": "Database.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\Database.cs",
+              "RelativeToolTip": "Database.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:06:54.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CommandProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\CommandProcessor.cs",
+              "RelativeDocumentMoniker": "CommandProcessor.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\CommandProcessor.cs",
+              "RelativeToolTip": "CommandProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:06:49.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-06-26T10:07:09.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-26T10:07:00.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\TaskItem.cs",
+              "RelativeDocumentMoniker": "TaskItem.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\TaskItem.cs",
+              "RelativeToolTip": "TaskItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:20.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "schema.sql",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\schema.sql",
+              "RelativeDocumentMoniker": "schema.sql",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\schema.sql",
+              "RelativeToolTip": "schema.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-06-26T10:08:54.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InputValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\InputValidator.cs",
+              "RelativeDocumentMoniker": "InputValidator.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\InputValidator.cs",
+              "RelativeToolTip": "InputValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:06:58.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserMemory.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\UserMemory.cs",
+              "RelativeDocumentMoniker": "UserMemory.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\UserMemory.cs",
+              "RelativeToolTip": "UserMemory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:33.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TaskManager.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\TaskManager.cs",
+              "RelativeDocumentMoniker": "TaskManager.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\TaskManager.cs",
+              "RelativeToolTip": "TaskManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:07:22.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-26T10:06:43.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ActivityLogger.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\ActivityLogger.cs",
+              "RelativeDocumentMoniker": "ActivityLogger.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\CyberBot_Part3\\WpfApp1\\ActivityLogger.cs",
+              "RelativeToolTip": "ActivityLogger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T10:06:35.186Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

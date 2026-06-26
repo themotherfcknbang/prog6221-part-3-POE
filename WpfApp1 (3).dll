@@ -1,0 +1,83 @@
+using System;
+using MySqlConnector;
+
+namespace CyberBot
+{
+    /// <summary>
+    /// Central database helper. Opens connections to MySQL and ensures
+    /// the required tables exist (auto-creates them on first run).
+    /// </summary>
+    static class Database
+    {
+        /// <summary>True once we've confirmed we can talk to MySQL.</summary>
+        public static bool IsAvailable { get; private set; } = true;
+
+        /// <summary>Last connection error message (for diagnostics), if any.</summary>
+        public static string? LastError { get; private set; }
+
+        /// <summary>
+        /// Creates the database (if missing) and the tasks / activity_log
+        /// tables (if missing). Safe to call every time the app starts.
+        /// </summary>
+        public static void Initialise()
+        {
+            try
+            {
+                // First connect WITHOUT a database selected, so we can create it.
+                string serverOnlyConnStr = DbConfig.ConnectionString
+                    .Replace("Database=cyberbot_db;", "");
+
+                using (var conn = new MySqlConnection(serverOnlyConnStr))
+                {
+                    conn.Open();
+                    using var createDb = conn.CreateCommand();
+                    createDb.CommandText = "CREATE DATABASE IF NOT EXISTS cyberbot_db;";
+                    createDb.ExecuteNonQuery();
+                }
+
+                // Now connect to the actual database and create tables.
+                using var dbConn = new MySqlConnection(DbConfig.ConnectionString);
+                dbConn.Open();
+
+                using var createTasks = dbConn.CreateCommand();
+                createTasks.CommandText = @"
+                    CREATE TABLE IF NOT EXISTS tasks (
+                        TaskId        INT AUTO_INCREMENT PRIMARY KEY,
+                        Title         VARCHAR(150)  NOT NULL,
+                        Description   VARCHAR(500)  NULL,
+                        ReminderDate  DATETIME      NULL,
+                        IsCompleted   TINYINT(1)    NOT NULL DEFAULT 0,
+                        CreatedAt     DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP
+                    );";
+                createTasks.ExecuteNonQuery();
+
+                using var createLog = dbConn.CreateCommand();
+                createLog.CommandText = @"
+                    CREATE TABLE IF NOT EXISTS activity_log (
+                        LogId      INT AUTO_INCREMENT PRIMARY KEY,
+                        Action     VARCHAR(300)  NOT NULL,
+                        Category   VARCHAR(50)   NOT NULL,
+                        Timestamp  DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP
+                    );";
+                createLog.ExecuteNonQuery();
+
+                IsAvailable = true;
+                LastError   = null;
+            }
+            catch (Exception ex)
+            {
+                // The chatbot must keep working even if MySQL is unreachable —
+                // we just disable persistence and surface a friendly message.
+                IsAvailable = false;
+                LastError   = ex.Message;
+            }
+        }
+
+        public static MySqlConnection GetConnection()
+        {
+            var conn = new MySqlConnection(DbConfig.ConnectionString);
+            conn.Open();
+            return conn;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+namespace CyberBot
+{
+    /// <summary>
+    /// The set of higher-level intents the NLP layer can recognise,
+    /// on top of (and before falling back to) the original ResponseEngine
+    /// keyword/topic matching from Parts 1 & 2.
+    /// </summary>
+    enum NlpIntent
+    {
+        None,
+        AddTask,
+        ViewTasks,
+        CompleteTask,
+        DeleteTask,
+        StartQuiz,
+        QuizAnswer,
+        ShowActivityLog,
+        ShowFullActivityLog
+    }
+}
